@@ -1253,7 +1253,15 @@ To use promises switch to importing 'simple-git/promise'.`);
          command.push(opt.from + rangeOperator + opt.to);
       }
 
-      if (opt.file) {
+      if (opt['since']) {
+         command.push('--since=' + opt['since']);
+      }
+
+      if (opt['until']) {
+         command.push('--until=' + opt['until']);
+      }
+
+     if (opt.file) {
          suffix.push("--follow", options.file);
       }
 
