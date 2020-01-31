@@ -1253,12 +1253,12 @@ To use promises switch to importing 'simple-git/promise'.`);
          command.push(opt.from + rangeOperator + opt.to);
       }
 
-      if (opt['since']) {
-         command.push('--since=' + opt['since']);
+      if (opt.since) {
+         command.push('--since=' + options.since);
       }
 
-      if (opt['until']) {
-         command.push('--until=' + opt['until']);
+      if (opt.until) {
+         command.push('--until=' + options.until);
       }
 
      if (opt.file) {
@@ -1271,6 +1271,7 @@ To use promises switch to importing 'simple-git/promise'.`);
 
       Git._appendOptions(command, opt);
 
+      console.log(command);
       return this._run(
          command.concat(suffix),
          Git._responseHandler(handler, 'ListLogSummary', [splitter, fields])
